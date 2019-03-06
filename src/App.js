@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Launches from './components/Launches'
-import Launch from './components/Launch'
-import logo from './SpaceX-Logo.svg'
-import './App.css';
+import Launches from "./components/Launches";
+import Launch from "./components/Launch";
+import logo from "./SpaceX-Logo.svg";
+import "./App.css";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql'
-})
+  uri: "http://localhost:5000/graphql"
+});
 
 class App extends Component {
   render() {
@@ -20,11 +20,16 @@ class App extends Component {
           <div className="container">
             <img
               src={logo}
-              alt='SpaceX'
-              style={{ width: '332px', height: '41px', display: 'block', margin: 'auto' }}
+              alt="SpaceX"
+              style={{
+                width: "332px",
+                height: "41px",
+                display: "block",
+                margin: "auto"
+              }}
             />
-            <Route exact path='/' component={Launches} />
-            <Route exact path='/launch/:flight_number' component={Launch} />
+            <Route exact path="/" component={Launches} />
+            <Route exact path="/launch/:flight_number" component={Launch} />
           </div>
         </Router>
       </ApolloProvider>
