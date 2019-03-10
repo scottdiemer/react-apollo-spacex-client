@@ -3,11 +3,16 @@ import classNames from "classnames";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
-function LaunchItem({
+const LaunchItem = ({
   launch: { flight_number, mission_name, launch_date_local, launch_success }
-}) {
+}) => {
   return (
-    <div className="card card-body mb-3">
+    <div
+      className={classNames({
+        "border-success card card-body mb-3": launch_success,
+        "border-danger card card-body mb-3": !launch_success
+      })}
+    >
       <div className="row">
         <div className="col-md-9">
           <h4>
@@ -33,6 +38,6 @@ function LaunchItem({
       </div>
     </div>
   );
-}
+};
 
 export default LaunchItem;
